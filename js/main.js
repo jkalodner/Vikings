@@ -5,7 +5,7 @@ jQuery(document).ready(function($){
 		contentSections = $('.cd-section');
 		windowWidth = $(window).width();
 		parents = document.getElementsByClassName('imgspan');
-		children = document.getElementsByTagName('IMG');
+		children = document.getElementsByTagName('img');
 		sub = [];
 		for(var i=0; i<5; i++){
 			sub.push(children[i]);
@@ -16,17 +16,18 @@ jQuery(document).ready(function($){
 			}
 		}
 	$(window).on('resize',function(){
-		windowWidth = $(window).width();
-		if(windowWidth>768){
+		var newWindowWidth = $(window).width();
+		if(newWindowWidth>768 && windowWidth<768){
 			for(var i=0; i<5; i++){
 				$(parents[i]).append(sub[i]);
 			}
 		}
-		if(windowWidth<768){
+		if(newWindowWidth<768 && windowWidth>768){
 			for(var i=0; i<5; i++){
 				parents[i].removeChild(sub[i]);
 			}
 		}
+		windowWidth = newWindowWidth;
 	});
 	$(window).on('scroll', function(){		
 		//on desktop - fix secondary navigation on scrolling

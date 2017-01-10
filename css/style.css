@@ -31,11 +31,10 @@ img {
 }
 /* -------------------------------- 
 
-Modules - reusable parts of our design
+Modules
 
 -------------------------------- */
 .cd-container {
-  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
   width: 90%;
   max-width: 768px;
   margin: 0 auto;
@@ -47,7 +46,6 @@ Modules - reusable parts of our design
 }
 
 .has-top-margin {
-  /* this class is given - using jQuery - to the .cd-main-content following the .cd-secondary-nav when it becomes fixed */
 }
 @media only screen and (min-width: 768px) {
   .has-top-margin {
@@ -142,7 +140,6 @@ Secondary Fixed Navigation
   -moz-osx-font-smoothing: grayscale;
 }
 .cd-secondary-nav ul {
-  /* mobile first - secondary navigation hidden by default, triggered by tap/click on .cd-secondary-nav-trigger*/
   position: fixed;
   width: 90%;
   max-width: 400px;
@@ -201,7 +198,6 @@ Secondary Fixed Navigation
     height: 100%;
   }
   .cd-secondary-nav ul {
-    /* reset navigation values */
     position: static;
     width: auto;
     max-width: 100%;
@@ -248,12 +244,13 @@ Secondary Fixed Navigation
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
     transform: translateX(-50%);
-/*    background-repeat: no-repeat;
-    background-image: url(../img/cd-nav-icons.svg);*/
   }
   .cd-secondary-nav li a span img{
     filter:invert(100%);
     opacity: .4;
+  }
+  .cd-secondary-nav li a:hover span img{
+    opacity: 1;
   }
   .cd-secondary-nav li a:hover b, .cd-secondary-nav li a.active b {
     color: #f0eee1;
@@ -274,8 +271,6 @@ Secondary Fixed Navigation
     background-position: -160px 0;
   }
   .cd-secondary-nav.is-fixed {
-    /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
-    /* so we defined to diffent classes: .is-fixed to change the position value and .is-animated to change childrens' attributes (padding and opacity)*/
     position: fixed;
     left: 0;
     top: 0;
@@ -283,8 +278,6 @@ Secondary Fixed Navigation
     width: 100%;
   }
   .cd-secondary-nav.animate-children {
-    /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
-    /* so we defined to diffent classes: .is-fixed to change the position value and .is-animated to change childrens' attributes (padding and opacity)*/
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
   .cd-secondary-nav.animate-children li a {
@@ -310,7 +303,6 @@ Secondary Fixed Navigation
   z-index: 2;
 }
 .cd-secondary-nav-trigger span {
-  /* the span element is used to create the menu icon */
   position: absolute;
   display: block;
   width: 4px;
