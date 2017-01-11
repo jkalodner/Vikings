@@ -30,14 +30,9 @@ jQuery(document).ready(function($){
 		windowWidth = newWindowWidth;
 	});
 	$(window).on('scroll', function(){		
-		//on desktop - fix secondary navigation on scrolling
 		if($(window).scrollTop() > secondaryNavTopPosition ) {
-			//fix secondary navigation
 			secondaryNav.addClass('is-fixed');
-			//push the .cd-main-content giving it a top-margin
 			$('.cd-main-content').addClass('has-top-margin');	
-			//on Firefox CSS transition/animation fails when parent element changes position attribute
-			//so we to change secondary navigation childrens attributes after having changed its position value
 			setTimeout(function() {
 	            secondaryNav.addClass('animate-children');
 	        }, 50);
@@ -48,8 +43,6 @@ jQuery(document).ready(function($){
 	            secondaryNav.removeClass('animate-children');
 	        }, 50);
 		}
-
-		//on desktop - update the active link in the secondary fixed navigation
 		updateSecondaryNavigation();
 	});
 
@@ -66,14 +59,12 @@ jQuery(document).ready(function($){
 		});
 	}
 
-	//on mobile - open/close secondary navigation clicking/tapping the .cd-secondary-nav-trigger
 	$('.cd-secondary-nav-trigger').on('click', function(event){
 		event.preventDefault();
 		$(this).toggleClass('menu-is-open');
 		secondaryNav.find('ul').toggleClass('is-visible');
 	});
 
-	//smooth scrolling when clicking on the secondary navigation items
 	secondaryNav.find('ul a').on('click', function(event){
         event.preventDefault();
         var target= $(this.hash);
@@ -81,7 +72,6 @@ jQuery(document).ready(function($){
         	'scrollTop': target.offset().top - secondaryNav.height() + 1
         	}, 400
         ); 
-        //on mobile - close secondary navigation
         $('.cd-secondary-nav-trigger').removeClass('menu-is-open');
         secondaryNav.find('ul').removeClass('is-visible');
     });
