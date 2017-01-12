@@ -120,21 +120,13 @@ Intro
 }
 @media only screen and (min-width: 768px) {
   #cd-intro {
-    height: 400px;
-  }
-  #cd-intro #cd-intro-tagline {
-    padding-top: 160px;
-  }
-  #cd-intro h1 {
-    font-size: 75px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  #cd-intro {
-    height: 600px;
+    height: 86vh;
   }
   #cd-intro #cd-intro-tagline {
     padding-top: 250px;
+  }
+  #cd-intro h1 {
+    font-size: 75px;
   }
 }
 /* -------------------------------- 

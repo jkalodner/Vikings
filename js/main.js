@@ -7,28 +7,27 @@ jQuery(document).ready(function($){
 		parents = document.getElementsByClassName('imgspan');
 		children = document.getElementsByTagName('img');
 		sub = [];
-		for(var i=0; i<5; i++){
-			sub.push(children[i]);
-		}
-		if(windowWidth<768){
+		images = true;
+	for(var i=0; i<5; i++){
+		sub.push(children[i]);
+	}
+	function checkWidth(){
+		windowWidth = $(window).width();
+		if(windowWidth<768 && images){
 			for(var i=0; i<5; i++){
 				parents[i].removeChild(sub[i]);
 			}
+			images = false;
 		}
-	$(window).on('resize',function(){
-		var newWindowWidth = $(window).width();
-		if(newWindowWidth>768 && windowWidth<768){
+		if(windowWidth>768 && !images){
 			for(var i=0; i<5; i++){
 				$(parents[i]).append(sub[i]);
 			}
+			images = true;
 		}
-		if(newWindowWidth<768 && windowWidth>768){
-			for(var i=0; i<5; i++){
-				parents[i].removeChild(sub[i]);
-			}
-		}
-		windowWidth = newWindowWidth;
-	});
+	}
+	checkWidth();
+	$(window).resize(checkWidth);
 	$(window).on('scroll', function(){		
 		if($(window).scrollTop() > secondaryNavTopPosition ) {
 			secondaryNav.addClass('is-fixed');
