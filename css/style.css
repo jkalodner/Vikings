@@ -43,6 +43,21 @@ i{
 Modules
 
 -------------------------------- */
+.caption {
+	font-size: .75em;
+	font-style: italic;
+	text-align: center;
+	color:black;
+}
+.captionbox{
+	margin:10px;
+	border: 1px solid black;
+	background-color:#f8f9fa;
+	padding:3px;
+}
+.captionbox img{
+	border:1px solid #c8ccd1;
+}
 .cd-container {
   width: 90%;
   max-width: 768px;
